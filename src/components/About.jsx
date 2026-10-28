@@ -39,7 +39,7 @@ export default function About() {
               />
               <div>
                 <div className="signature-name">Secretariat of Alaris MUN</div>
-                <div className="signature-role">Office of the Secretary-General & Director-General</div>
+                <div className="signature-role">Office of the Secretary-General</div>
               </div>
             </div>
           </div>

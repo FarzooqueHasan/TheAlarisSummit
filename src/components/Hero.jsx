@@ -6,7 +6,6 @@ export default function Hero({ onOpenRegister }) {
   const [animatingHero, setAnimatingHero] = useState(false);
 
   useEffect(() => {
-    // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       setIsRevealed(true);
@@ -14,7 +13,7 @@ export default function Hero({ onOpenRegister }) {
       return;
     }
 
-    // Unreveal sequence: hold initial mist so visitors soak in the atmosphere, then part the clouds
+    // Unreveal sequence
     const timer = setTimeout(() => {
       triggerUnreveal();
     }, 2400);
@@ -24,7 +23,6 @@ export default function Hero({ onOpenRegister }) {
 
   const triggerUnreveal = () => {
     setIsRevealed(true);
-    // Stagger hero elements slightly so the title ascends right as the clouds part
     setTimeout(() => {
       setAnimatingHero(true);
     }, 350);
@@ -34,7 +32,6 @@ export default function Hero({ onOpenRegister }) {
     <>
       {/* ==========================================================================
           THE CLOUD UNREVEAL INTRO CURTAIN
-          The clouds cover the page on landing and unreveal into the hero section
           ========================================================================== */}
       <div
         className={`cloud-curtain-overlay ${isRevealed ? 'revealed' : ''}`}
@@ -64,13 +61,13 @@ export default function Hero({ onOpenRegister }) {
       </div>
 
       {/* ==========================================================================
-          HERO SECTION (FAITHFUL REPRODUCTION OF 'THE ALARIS SUMMIT.png')
+          HERO SECTION
           ========================================================================== */}
       <section id="hero" className="hero-viewport" aria-label="Hero Section: The Alaris Summit">
         {/* Atmospheric Backlight */}
         <div className="hero-ambient-glow" aria-hidden="true"></div>
 
-        {/* Framing Clouds Left & Right (Matching reference image) */}
+        {/* Framing Clouds Left & Right */}
         <div className="hero-cloud-frame left" aria-hidden="true">
           <div className="hero-cloud-sprite"></div>
         </div>
@@ -81,7 +78,7 @@ export default function Hero({ onOpenRegister }) {
         {/* Central Stage */}
         <div className={`hero-content ${animatingHero ? 'animating' : ''}`}>
 
-          {/* Watermark Phoenix & Laurel Emblem (Positioned directly behind the title) */}
+          {/* Watermark Phoenix & Laurel Emblem */}
           <div className="hero-phoenix-wrapper">
             <img
               src="/images/logo_mark.png"
@@ -91,7 +88,7 @@ export default function Hero({ onOpenRegister }) {
               height="680"
             />
 
-            {/* Monumental 3-Line Title in NT Brick Sans */}
+            {/* Title */}
             <h1 className="hero-summit-title">
               <span className="line-1">THE</span>
               <span className="line-2">ALARIS</span>
@@ -99,7 +96,7 @@ export default function Hero({ onOpenRegister }) {
             </h1>
           </div>
 
-          {/* Flourish Banner: Antique filigree surrounding 'THE FIRST FLIGHT' */}
+          {/*  'THE FIRST FLIGHT' */}
           <div className="hero-flourish-banner">
             <svg
               className="flourish-svg"
@@ -130,16 +127,16 @@ export default function Hero({ onOpenRegister }) {
           <div className="hero-meta-bar">
             <div className="hero-meta-item">
               <span>Date:</span>
-              <strong>June 2027</strong>
+              <strong>3-4 July 2027</strong>
             </div>
             <span className="hero-meta-divider">✦</span>
             <div className="hero-meta-item">
               <span>Venue:</span>
-              <strong>TBD</strong>
+              <strong>New Delhi</strong>
             </div>
           </div>
 
-          {/* Primary Call to Actions */}
+          {/* Primary CTA */}
           <div className="hero-actions">
             <button
               type="button"
@@ -153,18 +150,8 @@ export default function Hero({ onOpenRegister }) {
               </svg>
             </button>
 
-            <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfnNgjNnjgm3O0FwLMdQOMGs5S_pwQCyb2YdkPOm2EZG5ojRA/viewform?usp=publish-editor" 
-              className="btn btn-secondary"
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Register as Secretariat
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '6px' }} aria-hidden="true">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
+            <a href="#committees" className="btn btn-secondary">
+              Explore Committees
             </a>
           </div>
         </div>
